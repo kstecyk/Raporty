@@ -1,0 +1,3 @@
+ListaZwierzat.csv ; https://sol.zetosoftware.pl/sol-klient-app/index.jsp#!FU_134Wybor;PARAM_WEJSCIE_Z_MENU=true
+Zdarzenia.csv ; https://sol.zetosoftware.pl/sol-klient-app/index.jsp#!fu96ListaZdarzen
+Pag ; https://sol.zetosoftware.pl/sol-klient-app/index.jsp#!fu2183AnalizaTestyPag

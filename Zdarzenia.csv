@@ -1,0 +1,180 @@
+Lp;Data zdarzenia;Data rejestracji;Zwierzę;Numer oborowy;Nazwa;Rodzaj zdarzenia;Opis;Wykonał;Zarejestrował;Wersja aktualna
+1;2025-12-09;2025-12-12 22:03:55;PL005368070115;;WIOLA;Wycielenie;"Poród łatwy ; 1JŻ ; skierować do badania gin";;Stecyk Dariusz;Tak
+2;2025-12-04;2025-12-06 11:51:52;PL005423498854;;ZULA;Ubycie;"Ubycie: 2025-12-04; Rzeźnia; Choroby wymienia";;Admin Startowy admin;Tak
+3;2025-12-02;2025-12-06 11:51:49;PL005380843810;;TASIA;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+4;2025-12-02;2025-12-06 11:51:49;PL005380843841;;MINI;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+5;2025-12-02;2025-12-06 11:51:49;PL005399718369;;MIRA;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+6;2025-12-02;2025-12-06 11:51:49;PL005423498915;;HANKA BIS;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+7;2025-12-02;2025-12-06 11:51:49;PL005423498922;;ZYTA-BIS;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+8;2025-12-02;2025-12-06 11:51:49;PL005423499073;;CYRANKA;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+9;2025-12-02;2025-12-06 11:51:48;PL005451141302;;STOKROTKA;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+10;2025-12-02;2025-12-06 11:51:49;PL005452069803;;MAKITA;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+11;2025-12-02;2025-12-06 11:51:49;PL005491367588;;TERESKA-1;Zasuszenie;Zasuszona: 2025-12-02;;Admin Startowy admin;Tak
+12;2025-11-01;2025-11-12 18:09:35;PL005452069797;;FAJNA;Zasuszenie;Zasuszona: 2025-11-01;;Admin Startowy admin;Tak
+13;2025-10-06;2025-10-07 16:02:16;PL005423498960;;DAMKA;Pokrycie;"Krycie haremowe ; PL005532572704 MANIEK ; Data otwarcia: 2025-10-06";Stecyk Dariusz;Stecyk Dariusz;Tak
+14;2025-10-06;2025-10-07 16:01:31;PL005452069575;;DOSIA;Pokrycie;"Krycie haremowe ; PL005532572704 MANIEK ; Data otwarcia: 2025-10-06";Stecyk Dariusz;Stecyk Dariusz;Tak
+15;2025-09-26;2025-10-08 18:09:44;PL005423499080;;LOTKA;Ubycie;"Ubycie: 2025-09-26; Padnięcie; Wypadki losowe";;Admin Startowy admin;Tak
+16;2025-09-21;2025-10-08 18:11:02;PL005380843865;;BIANKA;Wycielenie;"Poród łatwy ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+17;2025-09-11;2025-09-12 18:37:06;PL005451141463;;ELUNIA;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+18;2025-09-06;2025-09-12 18:37:08;PL005451141234;;KAMELA;Wycielenie;"Poród łatwy ; 1BM ; skierować do badania gin";;Admin Startowy admin;Tak
+19;2025-09-06;2025-09-12 18:37:06;PL005451141463;;ELUNIA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+20;2025-09-01;2025-09-12 18:36:10;PL005399718277;;KAMA;Zasuszenie;Zasuszona: 2025-09-01;;Admin Startowy admin;Tak
+21;2025-09-01;2025-09-12 18:36:10;PL005491367670;;DAMA-1;Zasuszenie;Zasuszona: 2025-09-01;;Admin Startowy admin;Tak
+22;2025-08-30;2025-09-12 18:37:12;PL005452069575;;DOSIA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+23;2025-08-15;2025-09-12 18:37:09;PL005380843797;;CUKIEREK;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+24;2025-08-12;2025-09-12 18:37:10;PL005423498755;;DANKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+25;2025-08-11;2025-08-13 17:44:58;PL005423498960;;DAMKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+26;2025-08-08;2025-08-13 17:43:52;PL005451141425;;MIRELKA;Zasuszenie;Zasuszona: 2025-08-08;;Admin Startowy admin;Tak
+27;2025-08-01;2025-08-13 17:43:55;PL005541628300;;BRYDA;Ubycie;"Ubycie: 2025-08-01; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+28;2025-08-01;2025-08-13 17:43:55;PL005563092349;;TEKILA;Ubycie;"Ubycie: 2025-08-01; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+29;2025-08-01;2025-08-13 17:43:55;PL005563092356;;MARYSIA;Ubycie;"Ubycie: 2025-08-01; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+30;2025-07-06;2025-07-08 15:30:38;PL005423498809;;TAMA;Wycielenie;"Poród łatwy ; 2BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+31;2025-07-03;2025-07-08 15:29:29;PL005491367595;;MADZIA-1;Ubycie;"Ubycie: 2025-07-03; Choroby kończyn";;Admin Startowy admin;Tak
+32;2025-07-02;2025-07-08 15:30:33;PL005423498854;;ZULA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+33;2025-07-02;2025-07-08 15:30:36;PL005423499080;;LOTKA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+34;2025-06-16;2025-07-08 15:30:34;PL005423498946;;BENITA;Wycielenie;"Poród samodzielny ; 1JŻ 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+35;2025-05-28;2025-06-07 09:43:56;PL005399718253;;DELMA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+36;2025-05-20;2025-06-07 09:42:50;PL005399718260;;RAMA;Ubycie;"Ubycie: 2025-05-20; Jałowość i chor.ukł.rozrod.";;Admin Startowy admin;Tak
+37;2025-05-16;2025-06-07 09:43:55;PL005451141487;;LOLITA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+38;2025-05-15;2025-06-07 09:43:53;PL005451141418;;MEWA;Wycielenie;"Poród łatwy ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+39;2025-05-15;2025-08-13 17:44:58;PL005563092448;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+40;2025-05-15;2025-08-13 17:44:58;PL005563092448;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+41;2025-05-10;2025-06-07 09:42:47;PL005380843865;;BIANKA;Zasuszenie;Zasuszona: 2025-05-10;;Admin Startowy admin;Tak
+42;2025-05-10;2025-06-07 09:42:47;PL005423498960;;DAMKA;Zasuszenie;Zasuszona: 2025-05-10;;Admin Startowy admin;Tak
+43;2025-05-10;2025-06-07 09:42:47;PL005423499080;;LOTKA;Zasuszenie;Zasuszona: 2025-05-10;;Admin Startowy admin;Tak
+44;2025-05-10;2025-06-07 09:42:47;PL005452069575;;DOSIA;Zasuszenie;Zasuszona: 2025-05-10;;Admin Startowy admin;Tak
+45;2025-05-08;2025-05-09 18:18:33;PL005451141340;;RAKIETA;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+46;2025-05-07;2025-05-09 18:17:37;PL005451141456;;ZOŁZA;Ubycie;"Ubycie: 2025-05-07; Jałowość i chor.ukł.rozrod.";;Admin Startowy admin;Tak
+47;2025-05-05;2025-06-07 09:43:50;PL005451141470;;ROLETA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+48;2025-05-03;2025-05-09 18:17:34;PL005380843797;;CUKIEREK;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+49;2025-05-03;2025-05-09 18:17:34;PL005399718253;;DELMA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+50;2025-05-03;2025-05-09 18:17:34;PL005399718260;;RAMA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+51;2025-05-03;2025-05-09 18:17:34;PL005423498755;;DANKA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+52;2025-05-03;2025-05-09 18:17:34;PL005423498809;;TAMA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+53;2025-05-03;2025-05-09 18:17:34;PL005423498854;;ZULA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+54;2025-05-03;2025-05-09 18:17:34;PL005451141234;;KAMELA;Zasuszenie;Zasuszona: 2025-05-03;;Admin Startowy admin;Tak
+55;2025-05-02;2025-05-09 18:18:33;PL005451141340;;RAKIETA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+56;2025-04-27;2025-05-09 18:18:27;PL005451141449;;HANIA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+57;2025-04-26;2025-05-09 18:18:28;PL005451141432;;POLA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+58;2025-04-19;2025-05-09 18:18:39;PL005399718284;;DELICJA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+59;2025-04-19;2025-05-09 18:18:36;PL005452069636;;TAMA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+60;2025-04-19;2025-08-13 17:44:58;PL005563092462;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+61;2025-04-19;2025-08-13 17:44:58;PL005563092462;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+62;2025-04-18;2025-05-09 18:18:31;PL005451141357;;DEJZI;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+63;2025-04-17;2025-05-09 18:18:30;PL005451141494;;TATRA;Wycielenie;"Poród łatwy ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+64;2025-04-11;2025-05-09 18:18:35;PL005423498816;;ZANA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+65;2025-04-11;2025-08-13 17:44:58;PL005563092455;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+66;2025-04-11;2025-08-13 17:44:58;PL005563092455;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+67;2025-04-10;2025-05-09 18:18:37;PL005452069599;;MERIDA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+68;2025-03-31;2025-04-04 17:51:12;PL005423498953;;ELŻBIETA-1;Ubycie;"Ubycie: 2025-03-31; Choroby wymienia";;Admin Startowy admin;Tak
+69;2025-02-26;2025-03-05 20:51:20;PL005563092103;;;Ubycie;"Ubycie: 2025-02-26; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+70;2025-02-20;2025-03-05 20:52:21;PL005491367571;;TERESA;Wycielenie;"Poród samodzielny ; 1JM ; skierować do badania gin";;Admin Startowy admin;Tak
+71;2025-02-16;2025-03-05 20:52:26;PL005380843834;;MISKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+72;2025-02-16;2025-03-05 20:52:24;PL005399718376;;MARZANNA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+73;2025-02-16;2025-03-05 20:52:28;PL005563092219;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+74;2025-02-16;2025-03-05 20:52:28;PL005563092219;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+75;2025-02-16;2025-04-04 17:52:05;PL005563092356;;MARYSIA;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+76;2025-02-16;2025-04-04 17:52:05;PL005563092356;;MARYSIA;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+77;2025-02-15;2025-03-05 20:51:16;PL005423498946;;BENITA;Zasuszenie;Zasuszona: 2025-02-15;;Admin Startowy admin;Tak
+78;2025-02-14;2025-03-05 20:51:16;PL005399718284;;DELICJA;Zasuszenie;Zasuszona: 2025-02-14;;Admin Startowy admin;Tak
+79;2025-02-14;2025-03-05 20:52:29;PL005423498885;;TEKLA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+80;2025-02-14;2025-03-05 20:51:16;PL005452069599;;MERIDA;Zasuszenie;Zasuszona: 2025-02-14;;Admin Startowy admin;Tak
+81;2025-02-14;2025-03-05 20:51:16;PL005452069636;;TAMA;Zasuszenie;Zasuszona: 2025-02-14;;Admin Startowy admin;Tak
+82;2025-02-14;2025-04-04 17:52:05;PL005563092349;;TEKILA;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+83;2025-02-14;2025-04-04 17:52:05;PL005563092349;;TEKILA;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+84;2025-02-13;2025-03-05 20:51:20;PL005563092110;;;Ubycie;"Ubycie: 2025-02-13; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+85;2025-02-13;2025-03-05 20:51:20;PL005563092134;;;Ubycie;"Ubycie: 2025-02-13; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+86;2025-02-12;2025-03-05 20:52:30;PL005423499073;;CYRANKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+87;2025-02-12;2025-03-05 20:52:22;PL005491367595;;MADZIA-1;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+88;2025-02-12;2025-03-05 20:52:32;PL005563092165;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+89;2025-02-12;2025-03-05 20:52:32;PL005563092165;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+90;2025-02-12;2025-03-05 20:52:23;PL005563092196;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+91;2025-02-12;2025-03-05 20:52:23;PL005563092196;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+92;2025-02-11;2025-03-05 20:52:18;PL005491367304;;TAMIZA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+93;2025-02-11;2025-03-05 20:52:19;PL005491367311;;ZAJDA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+94;2025-02-11;2025-03-05 20:52:21;PL005563092189;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+95;2025-02-11;2025-03-05 20:52:21;PL005563092189;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+96;2025-02-10;2025-03-05 20:51:19;PL005399718246;;ROLLA;Ubycie;"Ubycie: 2025-02-10; Ch.met.i ukł.pokarm.";;Admin Startowy admin;Tak
+97;2025-02-08;2025-03-05 20:52:25;PL005452069643;;BRYDZIA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+98;2025-02-08;2025-03-05 20:52:26;PL005563092141;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+99;2025-02-08;2025-03-05 20:52:26;PL005563092141;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+100;2025-02-07;2025-03-05 20:52:28;PL005380843810;;TASIA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+101;2025-02-07;2025-03-05 20:52:16;PL005451141302;;STOKROTKA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+102;2025-02-07;2025-03-05 20:52:33;PL005452069742;;KLUSKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+103;2025-02-07;2025-04-04 17:52:05;PL005563092059;;SETKA;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+104;2025-02-07;2025-04-04 17:52:05;PL005563092059;;SETKA;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+105;2025-02-07;2025-03-05 20:52:35;PL005563092158;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+106;2025-02-07;2025-03-05 20:52:35;PL005563092158;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+107;2025-02-06;2025-03-05 20:52:32;PL005452069803;;MAKITA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+108;2025-02-06;2025-03-05 20:52:33;PL005563092080;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+109;2025-02-06;2025-03-05 20:52:33;PL005563092080;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+110;2025-02-01;2025-02-05 17:32:46;PL005399718369;;MIRA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+111;2025-02-01;2025-04-04 17:52:05;PL005563092271;;MIRANDA;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+112;2025-02-01;2025-04-04 17:52:05;PL005563092271;;MIRANDA;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+113;2025-01-27;2025-02-05 17:32:47;PL005452069797;;FAJNA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+114;2025-01-27;2025-02-05 17:32:41;PL005491367588;;TERESKA-1;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+115;2025-01-27;2025-03-05 20:52:16;PL005563092097;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+116;2025-01-27;2025-03-05 20:52:16;PL005563092097;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+117;2025-01-26;2025-02-05 17:32:50;PL005423498915;;HANKA BIS;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+118;2025-01-25;2025-02-05 17:32:49;PL005423498977;;DGMARA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+119;2025-01-24;2025-02-05 17:32:44;PL005452069629;;PEJKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+120;2025-01-21;2025-02-05 17:32:42;PL005423498922;;ZYTA-BIS;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+121;2025-01-20;2025-02-05 17:32:45;PL005380843841;;MINI;Wycielenie;"Poród łatwy ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+122;2025-01-20;2025-04-04 17:52:05;PL005541628416;;MINIA;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+123;2025-01-20;2025-04-04 17:52:05;PL005541628416;;MINIA;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+124;2025-01-15;2025-02-05 17:31:52;PL005380843872;;ZOFIA;Ubycie;"Ubycie: 2025-01-15; Choroby wymienia";;Admin Startowy admin;Tak
+125;2025-01-03;2025-02-05 17:32:37;PL005491367670;;DAMA-1;Wycielenie;"Poród samodzielny ; 2JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+126;2025-01-03;2025-02-05 17:32:39;PL005563092103;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+127;2025-01-03;2025-02-05 17:32:39;PL005563092103;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+128;2025-01-03;2025-02-05 17:32:39;PL005563092110;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+129;2025-01-03;2025-02-05 17:32:39;PL005563092110;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+130;2024-12-31;2025-02-05 17:32:39;PL005451141272;;DONATA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+131;2024-12-31;2025-02-05 17:32:41;PL005563092127;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+132;2024-12-31;2025-02-05 17:32:41;PL005563092127;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+133;2024-12-06;2025-02-05 17:31:49;PL005380843810;;TASIA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+134;2024-12-06;2025-02-05 17:31:49;PL005380843834;;MISKA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+135;2024-12-06;2025-02-05 17:31:49;PL005399718369;;MIRA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+136;2024-12-06;2025-02-05 17:31:48;PL005399718376;;MARZANNA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+137;2024-12-06;2025-02-05 17:31:48;PL005423498816;;ZANA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+138;2024-12-06;2025-02-05 17:31:49;PL005423498885;;TEKLA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+139;2024-12-06;2025-02-05 17:31:49;PL005423498915;;HANKA BIS;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+140;2024-12-06;2025-02-05 17:31:48;PL005423498922;;ZYTA-BIS;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+141;2024-12-06;2025-02-05 17:31:49;PL005423499073;;CYRANKA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+142;2024-12-06;2025-02-05 17:32:35;PL005451141425;;MIRELKA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+143;2024-12-06;2025-02-05 17:31:48;PL005452069629;;PEJKA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+144;2024-12-06;2025-02-05 17:31:48;PL005452069643;;BRYDZIA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+145;2024-12-06;2025-02-05 17:31:49;PL005452069742;;KLUSKA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+146;2024-12-06;2025-02-05 17:31:49;PL005452069797;;FAJNA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+147;2024-12-06;2025-02-05 17:31:49;PL005452069803;;MAKITA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+148;2024-12-06;2025-02-05 17:31:47;PL005491367571;;TERESA;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+149;2024-12-06;2025-02-05 17:31:47;PL005491367588;;TERESKA-1;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+150;2024-12-06;2025-02-05 17:31:48;PL005491367595;;MADZIA-1;Zasuszenie;Zasuszona: 2024-12-06;;Admin Startowy admin;Tak
+151;2024-12-03;2024-12-04 16:00:30;PL005399718246;;ROLLA;Zasuszenie;Zasuszona: 2024-12-03;;Admin Startowy admin;Tak
+152;2024-11-10;2024-12-04 16:00:30;PL005380843841;;MINI;Zasuszenie;Zasuszona: 2024-11-10;;Admin Startowy admin;Tak
+153;2024-10-01;2024-10-08 19:10:21;PL005299936801;;MALINA;Ubycie;"Ubycie: 2024-10-01; Starość";;Admin Startowy admin;Tak
+154;2024-10-01;2024-10-08 19:10:21;PL005452069650;;RAMONA;Ubycie;"Ubycie: 2024-10-01; Choroby wymienia";;Admin Startowy admin;Tak
+155;2024-10-01;2024-11-08 17:39:09;PL005563092257;;;Ubycie;"Ubycie: 2024-10-01; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+156;2024-09-17;2024-11-08 17:39:09;PL005563092240;;;Ubycie;"Ubycie: 2024-09-17; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+157;2024-09-16;2024-10-08 19:10:22;PL005389246926;;ZORZA;Ubycie;"Ubycie: 2024-09-16; Jałowość i chor.ukł.rozrod.";;Admin Startowy admin;Tak
+158;2024-08-29;2024-09-06 16:51:43;PL005423498809;;TAMA;Wycielenie;"Poród samodzielny ; 1BŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+159;2024-08-29;2024-10-08 19:11:00;PL005541628553;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+160;2024-08-29;2024-10-08 19:11:00;PL005541628553;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+161;2024-08-26;2024-11-08 17:39:09;PL005541628539;;;Ubycie;"Ubycie: 2024-08-26; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+162;2024-08-26;2024-11-08 17:39:09;PL005541628546;;;Ubycie;"Ubycie: 2024-08-26; Sprz.do dalsz.chowu";;Admin Startowy admin;Tak
+163;2024-08-23;2024-09-06 16:51:42;PL005380843476;;DODA;Wycielenie;"Poród samodzielny ; 1JŻ ; skierować do badania gin";;Admin Startowy admin;Tak
+164;2024-08-23;2025-02-05 17:32:34;PL005541628478;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+165;2024-08-23;2025-02-05 17:32:34;PL005541628478;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+166;2024-08-15;2024-09-06 16:51:01;PL005380843667;;FRANIA;Ubycie;"Ubycie: 2024-08-15; Inne";;Admin Startowy admin;Tak
+167;2024-08-15;2024-09-06 16:50:59;PL005452069650;;RAMONA;Zasuszenie;Zasuszona: 2024-08-15;;Admin Startowy admin;Tak
+168;2024-08-15;2024-09-06 16:50:59;PL005491367304;;TAMIZA;Zasuszenie;Zasuszona: 2024-08-15;;Admin Startowy admin;Tak
+169;2024-08-15;2024-09-06 16:50:59;PL005491367311;;ZAJDA;Zasuszenie;Zasuszona: 2024-08-15;;Admin Startowy admin;Tak
+170;2024-08-10;2025-04-04 17:51:09;PL005541628393;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+171;2024-08-10;2025-04-04 17:51:09;PL005541628393;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+172;2024-08-09;2025-04-04 17:51:09;PL005541628423;;;Przemieszczenie w gospodarstwie;"Przyjęcie do gospodarstwa; Przydzielono do: Gospodarstwo, stada IRZ: PL035018142001";;Admin Startowy admin;Tak
+173;2024-08-09;2025-04-04 17:51:09;PL005541628423;;;Przybycie;Przybycie: spoza gospodarstwa;;Admin Startowy admin;Tak
+174;2024-08-06;2024-08-07 13:59:37;PL005380843797;;CUKIEREK;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+175;2024-08-06;2024-08-07 13:59:40;PL005380843865;;BIANKA;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+176;2024-08-06;2024-08-07 13:59:35;PL005399718291;;TAMARA;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+177;2024-08-06;2024-08-07 13:59:38;PL005423498854;;ZULA;Diagnoza;Krowa podejrzana o Ketozę;Admin Startowy admin;Admin Startowy admin;Tak
+Lista zdarzeń;;;;;;;;;;
+użytkownik: Stecyk Dariusz  utworzono: 2025-12-12 22:04:58;;;;;;;;;;
