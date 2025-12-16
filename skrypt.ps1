@@ -164,8 +164,13 @@ foreach ($k in $pivot.Keys) {
 
             # NIE NADPISUJ wycielenia
             if ($pivot[$k][$m] -ne "WYCIELENIE") {
-                $pivot[$k][$m]
+                $pivot[$k][$m] = "ZASUSZONA"
+            }
+        }
+    }
+}
 
+#endregion
 
 #region ===========================================
 #region NAKŁADANIE WYCELEN (WSZYSTKICH)
