@@ -115,32 +115,6 @@ foreach ($r in $zdarzenia) {
 #endregion
 
 #region ===========================================
-#region ZASUSZENIA (OSTATNIE)
-# ===========================================
-
-$zasMap = @{}
-
-foreach ($r in $zdarzenia) {
-
-    if ($r."Rodzaj zdarzenia" -ne "Zasuszenie") { continue }
-
-    $d = $r."Data zdarzenia" -as [datetime]
-    if (-not $d) { continue }
-
-    $k = $r.Zwierzę
-
-    if (-not $zasMap.ContainsKey($k) -or $d -gt $zasMap[$k]) {
-        $zasMap[$k] = $d
-    }
-}
-
-foreach ($k in @($zasMap.Keys)) {
-    $zasMap[$k] = $zasMap[$k].ToString("yyyy-MM")
-}
-
-#endregion
-
-#region ===========================================
 #region ZASUSZENIA (WIELOKROTNE)
 # ===========================================
 
@@ -164,6 +138,33 @@ foreach ($r in $zdarzenia) {
 }
 
 #endregion
+
+#region ===========================================
+#region NAKŁADANIE ZASUSZENIA (ANULOWANE PRZEZ WYCELENIE)
+# ===========================================
+
+foreach ($k in $pivot.Keys) {
+
+    if (-not $zasMap.ContainsKey($k)) { continue }
+
+    foreach ($start in ($zasMap[$k] | Sort-Object)) {
+
+        $end = $null
+        if ($wycMap.ContainsKey($k)) {
+            $end = $wycMap[$k] |
+                   Where-Object { $_ -ge $start } |
+                   Sort-Object |
+                   Select-Object -First 1
+        }
+
+        foreach ($m in $months) {
+
+            if ($m -lt $start) { continue }
+            if ($end -and $m -gt $end) { break }
+
+            # NIE NADPISUJ wycielenia
+            if ($pivot[$k][$m] -ne "WYCIELENIE") {
+                $pivot[$k][$m]
 
 
 #region ===========================================
