@@ -2,10 +2,10 @@
 #region KONFIGURACJA CSV
 # ===========================================
 
-$outputHTML   = Join-Path $PSScriptRoot "raport.html"
-$csvPAG       = Join-Path $PSScriptRoot "AnalizaPAG.csv"
+$outputHTML = Join-Path $PSScriptRoot "raport.html"
+$csvPAG = Join-Path $PSScriptRoot "AnalizaPAG.csv"
 $csvZdarzenia = Join-Path $PSScriptRoot "Zdarzenia.csv"
-$csvLista     = Join-Path $PSScriptRoot "ListaZwierzat.csv"
+$csvLista = Join-Path $PSScriptRoot "ListaZwierzat.csv"
 
 #endregion
 
@@ -23,7 +23,7 @@ $listaKolczyki = $lista.Kolczyk
 # ===========================================
 
 $data = Import-Csv $csvPAG -Delimiter ";" |
-        Where-Object { $listaKolczyki -contains $_.Kolczyk }
+Where-Object { $listaKolczyki -contains $_.Kolczyk }
 
 #endregion
 
@@ -33,11 +33,11 @@ $data = Import-Csv $csvPAG -Delimiter ";" |
 
 $today = Get-Date
 $startMonth = $today.AddMonths(-12)
-$endMonth   = $today.AddMonths(1)
+$endMonth = $today.AddMonths(1)
 
 $months = @()
 $cursor = Get-Date -Year $startMonth.Year -Month $startMonth.Month -Day 1
-$end    = Get-Date -Year $endMonth.Year   -Month $endMonth.Month   -Day 1
+$end = Get-Date -Year $endMonth.Year   -Month $endMonth.Month   -Day 1
 
 while ($cursor -le $end) {
     $months += $cursor.ToString("yyyy-MM")
@@ -47,25 +47,40 @@ while ($cursor -le $end) {
 #endregion
 
 #region ===========================================
-#region BUDOWA PIVOTU
+#region BUDOWA PIVOTA
 # ===========================================
+
+# mapa zwierząt (szybki dostęp po kolczyku)
+$listaMap = @{}
+foreach ($z in $lista) {
+    $listaMap[$z.Kolczyk] = $z
+}
 
 $pivot = @{}
 
 foreach ($k in $listaKolczyki) {
 
-    $rows  = $data | Where-Object { $_.Kolczyk -eq $k }
-    $nazwa = ($lista | Where-Object { $_.Kolczyk -eq $k } | Select-Object -First 1).Nazwa
+    # tylko zwierzęta z listy
+    if (-not $listaMap.ContainsKey($k)) { continue }
 
+    $z = $listaMap[$k]
+    $rows = $data | Where-Object { $_.Kolczyk -eq $k }
+
+    # inicjalizacja wiersza
     $pivot[$k] = [ordered]@{
-        Kolczyk = $k
-        Nazwa   = $nazwa
+        Kolczyk             = $k
+        Nazwa               = $z.Nazwa
+        "Nr laktacji"       = $z.'Nr laktacji'
+        "Wydajność dobowa"  = $z.'Aktualna wyd. dobowa [kg]'
+        "Dni po wycieleniu" = $z.'Dni po wyciel.'
     }
 
+    # puste miesiące
     foreach ($m in $months) {
         $pivot[$k][$m] = ""
     }
 
+    # wypełnianie wynikami PAG
     foreach ($r in $rows) {
 
         $dt = $r."Pobranie próbki" -as [datetime]
@@ -80,12 +95,13 @@ foreach ($k in $listaKolczyki) {
 
 #endregion
 
+
 #region ===========================================
 #region WCZYTANIE ZDARZEŃ (TYLKO Z LISTY)
 # ===========================================
 
 $zdarzenia = Import-Csv $csvZdarzenia -Delimiter ";" |
-             Where-Object { $listaKolczyki -contains $_.Zwierzę }
+Where-Object { $listaKolczyki -contains $_.Zwierzę }
 
 #endregion
 
@@ -152,9 +168,9 @@ foreach ($k in $pivot.Keys) {
         $end = $null
         if ($wycMap.ContainsKey($k)) {
             $end = $wycMap[$k] |
-                   Where-Object { $_ -ge $start } |
-                   Sort-Object |
-                   Select-Object -First 1
+            Where-Object { $_ -ge $start } |
+            Sort-Object |
+            Select-Object -First 1
         }
 
         foreach ($m in $months) {
@@ -188,6 +204,7 @@ foreach ($k in $listaKolczyki) {
 }
 
 #endregion
+
 #region ===========================================
 #region GENEROWANIE HTML (UI + SORT + SELECT)
 # ===========================================
@@ -200,7 +217,6 @@ body {
     color: #e5e7eb;
 }
 
-/* === SKALOWANIE === */
 .wrapper {
     overflow-x: auto;
     max-width: 100vw;
@@ -212,7 +228,6 @@ table {
     min-width: 1600px;
 }
 
-/* === KOMÓRKI === */
 th, td {
     border: 1px solid #334155;
     padding: 4px 6px;
@@ -225,22 +240,11 @@ th {
     position: sticky;
     top: 0;
     z-index: 2;
-}
-
-/* === SORTOWANIE === */
-th.sortable {
     cursor: pointer;
 }
-th.sortable::after {
-    content: " ⇅";
-    font-size: 10px;
-    color: #64748b;
-}
 
-/* === WIERSZE === */
 tbody tr:hover {
     background-color: #020617;
-    cursor: pointer;
 }
 
 tr.selected {
@@ -248,13 +252,11 @@ tr.selected {
     background-color: #020617 !important;
 }
 
-/* === LEWA STRONA === */
 td.left {
     text-align: left;
     font-weight: 600;
 }
 
-/* === STATUSY === */
 .cielna     { background: #14532d; }
 .niecielna  { background: #7f1d1d; }
 .zasuszona  { background: #1e40af; }
@@ -262,21 +264,24 @@ td.left {
 </style>
 "@
 
-$html  = "<html><head><meta charset='UTF-8'>$css</head><body>"
-$html += "<div class='wrapper'>"
-$html += "<table id='raport'>"
+$html = "<html><head><meta charset='UTF-8'>$css</head><body>"
+$html += "<div class='wrapper'><table id='raport'>"
 
-# ===== NAGŁÓWEK =====
+# ===== THEAD =====
 $html += "<thead><tr>"
-$html += "<th>Lp</th><th>Kolczyk</th><th>Nazwa</th>"
+$html += "<th>Lp</th>"
+$html += "<th>Kolczyk</th>"
+$html += "<th>Nazwa</th>"
+$html += "<th>Lakt.</th>"
+$html += "<th>Dni po wyc.</th>"
+$html += "<th>Wyd. dobowa</th>"
 
 foreach ($m in $months) {
     $html += "<th>$m</th>"
 }
-
 $html += "</tr></thead>"
 
-# ===== BODY =====
+# ===== TBODY =====
 $html += "<tbody>"
 
 $lp = 1
@@ -286,9 +291,11 @@ foreach ($row in $pivot.Values) {
     $html += "<td>$lp</td>"
     $html += "<td class='left'>$($row.Kolczyk)</td>"
     $html += "<td class='left'>$($row.Nazwa)</td>"
+    $html += "<td>$($row.'Nr laktacji')</td>"
+    $html += "<td>$($row.'Dni po wycieleniu')</td>"
+    $html += "<td>$($row.'Wydajność dobowa')</td>"
 
     foreach ($m in $months) {
-
         $v = $row[$m]
         $class = ""
 
@@ -308,42 +315,34 @@ foreach ($row in $pivot.Values) {
 
 $html += "</tbody></table></div>"
 
-# ===== JAVASCRIPT =====
+# ===== JS =====
 $html += @"
 <script>
-// === PODŚWIETLANIE WIERSZA ===
 document.querySelectorAll('#raport tbody tr').forEach(row => {
     row.addEventListener('click', () => {
-        document
-            .querySelectorAll('#raport tbody tr.selected')
+        document.querySelectorAll('#raport tbody tr.selected')
             .forEach(r => r.classList.remove('selected'));
         row.classList.add('selected');
     });
 });
 
-// === SORTOWANIE KOLUMN ===
-const getCellValue = (tr, idx) =>
-    tr.children[idx].innerText.trim();
-
-const comparer = (idx, asc) => (a, b) => {
-    const v1 = getCellValue(asc ? a : b, idx);
-    const v2 = getCellValue(asc ? b : a, idx);
-
-    const n1 = parseFloat(v1.replace(',', '.'));
-    const n2 = parseFloat(v2.replace(',', '.'));
-    if (!isNaN(n1) && !isNaN(n2)) return n1 - n2;
-
-    return v1.localeCompare(v2, 'pl', { numeric: true });
-};
+const getCell = (tr, idx) => tr.children[idx].innerText.trim();
 
 document.querySelectorAll('#raport th').forEach((th, idx) => {
-    th.classList.add('sortable');
     let asc = true;
     th.addEventListener('click', () => {
         const tbody = th.closest('table').querySelector('tbody');
         Array.from(tbody.querySelectorAll('tr'))
-            .sort(comparer(idx, asc = !asc))
+            .sort((a, b) => {
+                const v1 = getCell(asc ? a : b, idx);
+                const v2 = getCell(asc ? b : a, idx);
+                const n1 = parseFloat(v1.replace(',', '.'));
+                const n2 = parseFloat(v2.replace(',', '.'));
+                if (!isNaN(n1) && !isNaN(n2)) return n1 - n2;
+                return v1.localeCompare(v2, 'pl', { numeric: true });
+            })
             .forEach(tr => tbody.appendChild(tr));
+        asc = !asc;
     });
 });
 </script>
@@ -356,7 +355,7 @@ $html | Out-File $outputHTML -Encoding UTF8
 #endregion
 
 
-<#
+
 # =========================
 # GIT PUSH (AUTO-DEPLOY)
 # =========================
@@ -368,4 +367,8 @@ git commit -m "Auto update report $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 git push
 
 Pop-Location
-#>
+
+
+
+
+
