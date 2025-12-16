@@ -1,37 +1,41 @@
-﻿#region # ===========================================
+﻿#region ===========================================
 #region KONFIGURACJA CSV
 # ===========================================
-<#
-$outputHTML    = "C:\Users\karst\OneDrive\Documents\skrypt rozrod\raport.html"
-$csvPAG        = "C:\Users\karst\OneDrive\Documents\skrypt rozrod\AnalizaPAG.csv"
-$csvZdarzenia = "C:\Users\karst\OneDrive\Documents\skrypt rozrod\Zdarzenia.csv"
-$csvLista      = "C:\Users\karst\OneDrive\Documents\skrypt rozrod\ListaZwierzat.csv"
-#>
+
 $outputHTML   = Join-Path $PSScriptRoot "raport.html"
 $csvPAG       = Join-Path $PSScriptRoot "AnalizaPAG.csv"
 $csvZdarzenia = Join-Path $PSScriptRoot "Zdarzenia.csv"
 $csvLista     = Join-Path $PSScriptRoot "ListaZwierzat.csv"
 
-# ===========================================
+#endregion
+
+#region ===========================================
 #region WCZYTANIE LISTY ZWIERZĄT
 # ===========================================
-$lista = Import-Csv $csvLista -Delimiter ";" |  Select-Object -SkipLast 2
 
-# ===========================================
-#region WCZYTANIE DANYCH PAG
-# ===========================================
-$data = Import-Csv $csvPAG -Delimiter ";"
+$lista = Import-Csv $csvLista -Delimiter ";" | Select-Object -SkipLast 2
+$listaKolczyki = $lista.Kolczyk
 
+#endregion
+
+#region ===========================================
+#region WCZYTANIE DANYCH PAG (TYLKO Z LISTY)
 # ===========================================
-#region MIESIĄCE: PUSTY PRZED + DANE + PUSTY PO
+
+$data = Import-Csv $csvPAG -Delimiter ";" |
+        Where-Object { $listaKolczyki -contains $_.Kolczyk }
+
+#endregion
+
+#region ===========================================
+#region MIESIĄCE (12 wstecz + 1 w przód)
 # ===========================================
+
 $today = Get-Date
-
 $startMonth = $today.AddMonths(-12)
 $endMonth   = $today.AddMonths(1)
 
 $months = @()
-
 $cursor = Get-Date -Year $startMonth.Year -Month $startMonth.Month -Day 1
 $end    = Get-Date -Year $endMonth.Year   -Month $endMonth.Month   -Day 1
 
@@ -40,116 +44,151 @@ while ($cursor -le $end) {
     $cursor = $cursor.AddMonths(1)
 }
 
-# ===========================================
+#endregion
+
+#region ===========================================
 #region BUDOWA PIVOTU
 # ===========================================
+
 $pivot = @{}
 
-foreach ($k in $lista.Kolczyk) {
+foreach ($k in $listaKolczyki) {
 
-    # wszystkie wpisy PAG dla danego zwierzęcia
-    $rows = $data | Where-Object { $_.Kolczyk -eq $k }
-
-    # nazwa (jeśli brak danych, będzie $null)
+    $rows  = $data | Where-Object { $_.Kolczyk -eq $k }
     $nazwa = ($lista | Where-Object { $_.Kolczyk -eq $k } | Select-Object -First 1).Nazwa
 
-    # inicjalizacja wiersza
     $pivot[$k] = [ordered]@{
         Kolczyk = $k
         Nazwa   = $nazwa
     }
 
-    # puste miesiące
     foreach ($m in $months) {
         $pivot[$k][$m] = ""
     }
 
-    # wypełnianie wynikami PAG
     foreach ($r in $rows) {
 
         $dt = $r."Pobranie próbki" -as [datetime]
         if (-not $dt) { continue }
 
         $ym = $dt.ToString("yyyy-MM")
-
         if ($months -contains $ym) {
             $pivot[$k][$ym] = $r.Wynik
         }
     }
 }
+
+#endregion
+
+#region ===========================================
+#region WCZYTANIE ZDARZEŃ (TYLKO Z LISTY)
 # ===========================================
-#region WCZYTANIE WYCIELEŃ
+
+$zdarzenia = Import-Csv $csvZdarzenia -Delimiter ";" |
+             Where-Object { $listaKolczyki -contains $_.Zwierzę }
+
+#endregion
+
+#region ===========================================
+#region WYCELENIA (WIELOKROTNE)
 # ===========================================
-#region WCZYTANIE WYCIELEŃ
-$wyc = Import-Csv $csvZdarzenia -Delimiter ";"
+
 $wycMap = @{}
 
-foreach ($r in $wyc) {
-    if ($r."Rodzaj zdarzenia" -eq "Wycielenie") {
-        $d = $r."Data zdarzenia" -as [datetime]
-        if ($d) {
-            $wycMap[$r.Zwierzę] = $d.ToString("yyyy-MM")
-        }
+foreach ($r in $zdarzenia) {
+
+    if ($r."Rodzaj zdarzenia" -ne "Wycielenie") { continue }
+
+    $d = $r."Data zdarzenia" -as [datetime]
+    if (-not $d) { continue }
+
+    $k = $r.Zwierzę
+    $m = $d.ToString("yyyy-MM")
+
+    if (-not $wycMap.ContainsKey($k)) {
+        $wycMap[$k] = @()
     }
+
+    $wycMap[$k] += $m
 }
 
 #endregion
 
+#region ===========================================
+#region ZASUSZENIA (OSTATNIE)
+# ===========================================
 
-# ===========================================
-#region WCZYTANIE ZASUSZEŃ
-# ===========================================
-$zas = Import-Csv $csvZdarzenia -Delimiter ";"
 $zasMap = @{}
 
-foreach ($r in $zas) {
-    if ($r."Rodzaj zdarzenia" -eq "Zasuszenie") {
-        $d = $r."Data zdarzenia" -as [datetime]
-        $zasMap[$r.Zwierzę] = $d.ToString("yyyy-MM")
+foreach ($r in $zdarzenia) {
 
+    if ($r."Rodzaj zdarzenia" -ne "Zasuszenie") { continue }
+
+    $d = $r."Data zdarzenia" -as [datetime]
+    if (-not $d) { continue }
+
+    $k = $r.Zwierzę
+
+    if (-not $zasMap.ContainsKey($k) -or $d -gt $zasMap[$k]) {
+        $zasMap[$k] = $d
     }
 }
 
-#region NAKŁADANIE ZASUSZENIA
+foreach ($k in @($zasMap.Keys)) {
+    $zasMap[$k] = $zasMap[$k].ToString("yyyy-MM")
+}
 
-foreach ($k in $pivot.Keys) {
+#endregion
+
+#region ===========================================
+#region NAKŁADANIE ZASUSZENIA (ANULOWANE PRZEZ WYCELENIE)
+# ===========================================
+
+foreach ($k in $listaKolczyki) {
 
     if (-not $zasMap.ContainsKey($k)) { continue }
 
     $start = $zasMap[$k]
-    $end   = $wycMap[$k]  # może być $null
+
+    $end = $null
+    if ($wycMap.ContainsKey($k)) {
+        $end = $wycMap[$k] |
+               Where-Object { $_ -ge $start } |
+               Sort-Object |
+               Select-Object -First 1
+    }
 
     foreach ($m in $months) {
 
         if ($m -lt $start) { continue }
-
-        # jeśli jest wycielenie koniec zasuszenia
         if ($end -and $m -ge $end) { break }
 
-        # Wypelnij statusem Zasuszona
-        if ($pivot[$k][$m] -eq "") {
-            $pivot[$k][$m] = "ZASUSZONA"
-        }
+        $pivot[$k][$m] = "ZASUSZONA"
     }
 }
+
 #endregion
 
-#region NAKŁADANIE WYCIELEŃ
+#region ===========================================
+#region NAKŁADANIE WYCELEN (WSZYSTKICH)
+# ===========================================
 
-foreach ($k in $pivot.Keys) {
+foreach ($k in $listaKolczyki) {
 
     if (-not $wycMap.ContainsKey($k)) { continue }
 
-    $m = $wycMap[$k]
-
-    if ($months -contains $m) {
-        $pivot[$k][$m] = "WYCIELENIE"
+    foreach ($m in $wycMap[$k]) {
+        if ($months -contains $m) {
+            $pivot[$k][$m] = "WYCIELENIE"
+        }
     }
 }
 
 #endregion
 
+#region ===========================================
 #region GENEROWANIE HTML
+# ===========================================
 
 $css = @"
 <style>
@@ -187,22 +226,12 @@ td.left {
 </style>
 "@
 
-$html = "<html><head><meta charset='UTF-8'>$css</head><body>"
-$html += "<table>"
+$html = "<html><head><meta charset='UTF-8'>$css</head><body><table>"
+$html += "<thead><tr><th>Lp</th><th>Kolczyk</th><th>Nazwa</th>"
 
-# ===== NAGŁÓWEK =====
-$html += "<thead>"
-$html += "<tr><th>Lp</th><th>Kolczyk</th><th>Nazwa</th>"
+foreach ($m in $months) { $html += "<th>$m</th>" }
 
-foreach ($m in $months) {
-    $html += "<th>$m</th>"
-}
-
-$html += "</tr>"
-$html += "</thead>"
-
-# ===== BODY =====
-$html += "<tbody>"
+$html += "</tr></thead><tbody>"
 
 $lp = 1
 foreach ($row in $pivot.Values) {
@@ -231,13 +260,13 @@ foreach ($row in $pivot.Values) {
     $lp++
 }
 
-$html += "</tbody>"
-$html += "</table></body></html>"
-
+$html += "</tbody></table></body></html>"
 $html | Out-File $outputHTML -Encoding UTF8
 
 #endregion
 
+
+<#
 # =========================
 # GIT PUSH (AUTO-DEPLOY)
 # =========================
@@ -249,3 +278,4 @@ git commit -m "Auto update report $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 git push
 
 Pop-Location
+#>
