@@ -188,9 +188,8 @@ foreach ($k in $listaKolczyki) {
 }
 
 #endregion
-
 #region ===========================================
-#region GENEROWANIE HTML
+#region GENEROWANIE HTML (UI + SORT + SELECT)
 # ===========================================
 
 $css = @"
@@ -200,28 +199,62 @@ body {
     background: #0f172a;
     color: #e5e7eb;
 }
+
+/* === SKALOWANIE === */
+.wrapper {
+    overflow-x: auto;
+    max-width: 100vw;
+}
+
 table {
     border-collapse: collapse;
-    width: 100%;
     font-size: 13px;
-    table-layout: fixed;
+    min-width: 1600px;
 }
+
+/* === KOMÓRKI === */
 th, td {
     border: 1px solid #334155;
     padding: 4px 6px;
     text-align: center;
     white-space: nowrap;
 }
+
 th {
     background: #1e293b;
     position: sticky;
     top: 0;
     z-index: 2;
 }
+
+/* === SORTOWANIE === */
+th.sortable {
+    cursor: pointer;
+}
+th.sortable::after {
+    content: " ⇅";
+    font-size: 10px;
+    color: #64748b;
+}
+
+/* === WIERSZE === */
+tbody tr:hover {
+    background-color: #020617;
+    cursor: pointer;
+}
+
+tr.selected {
+    outline: 2px solid #38bdf8;
+    background-color: #020617 !important;
+}
+
+/* === LEWA STRONA === */
 td.left {
     text-align: left;
     font-weight: 600;
 }
+
+/* === STATUSY === */
 .cielna     { background: #14532d; }
 .niecielna  { background: #7f1d1d; }
 .zasuszona  { background: #1e40af; }
@@ -229,12 +262,22 @@ td.left {
 </style>
 "@
 
-$html = "<html><head><meta charset='UTF-8'>$css</head><body><table>"
-$html += "<thead><tr><th>Lp</th><th>Kolczyk</th><th>Nazwa</th>"
+$html  = "<html><head><meta charset='UTF-8'>$css</head><body>"
+$html += "<div class='wrapper'>"
+$html += "<table id='raport'>"
 
-foreach ($m in $months) { $html += "<th>$m</th>" }
+# ===== NAGŁÓWEK =====
+$html += "<thead><tr>"
+$html += "<th>Lp</th><th>Kolczyk</th><th>Nazwa</th>"
 
-$html += "</tr></thead><tbody>"
+foreach ($m in $months) {
+    $html += "<th>$m</th>"
+}
+
+$html += "</tr></thead>"
+
+# ===== BODY =====
+$html += "<tbody>"
 
 $lp = 1
 foreach ($row in $pivot.Values) {
@@ -263,7 +306,51 @@ foreach ($row in $pivot.Values) {
     $lp++
 }
 
-$html += "</tbody></table></body></html>"
+$html += "</tbody></table></div>"
+
+# ===== JAVASCRIPT =====
+$html += @"
+<script>
+// === PODŚWIETLANIE WIERSZA ===
+document.querySelectorAll('#raport tbody tr').forEach(row => {
+    row.addEventListener('click', () => {
+        document
+            .querySelectorAll('#raport tbody tr.selected')
+            .forEach(r => r.classList.remove('selected'));
+        row.classList.add('selected');
+    });
+});
+
+// === SORTOWANIE KOLUMN ===
+const getCellValue = (tr, idx) =>
+    tr.children[idx].innerText.trim();
+
+const comparer = (idx, asc) => (a, b) => {
+    const v1 = getCellValue(asc ? a : b, idx);
+    const v2 = getCellValue(asc ? b : a, idx);
+
+    const n1 = parseFloat(v1.replace(',', '.'));
+    const n2 = parseFloat(v2.replace(',', '.'));
+    if (!isNaN(n1) && !isNaN(n2)) return n1 - n2;
+
+    return v1.localeCompare(v2, 'pl', { numeric: true });
+};
+
+document.querySelectorAll('#raport th').forEach((th, idx) => {
+    th.classList.add('sortable');
+    let asc = true;
+    th.addEventListener('click', () => {
+        const tbody = th.closest('table').querySelector('tbody');
+        Array.from(tbody.querySelectorAll('tr'))
+            .sort(comparer(idx, asc = !asc))
+            .forEach(tr => tbody.appendChild(tr));
+    });
+});
+</script>
+"@
+
+$html += "</body></html>"
+
 $html | Out-File $outputHTML -Encoding UTF8
 
 #endregion
