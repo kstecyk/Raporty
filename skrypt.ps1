@@ -141,33 +141,30 @@ foreach ($k in @($zasMap.Keys)) {
 #endregion
 
 #region ===========================================
-#region NAKŁADANIE ZASUSZENIA (ANULOWANE PRZEZ WYCELENIE)
+#region ZASUSZENIA (WIELOKROTNE)
 # ===========================================
 
-foreach ($k in $listaKolczyki) {
+$zasMap = @{}
 
-    if (-not $zasMap.ContainsKey($k)) { continue }
+foreach ($r in $zdarzenia) {
 
-    $start = $zasMap[$k]
+    if ($r."Rodzaj zdarzenia" -ne "Zasuszenie") { continue }
 
-    $end = $null
-    if ($wycMap.ContainsKey($k)) {
-        $end = $wycMap[$k] |
-               Where-Object { $_ -ge $start } |
-               Sort-Object |
-               Select-Object -First 1
+    $d = $r."Data zdarzenia" -as [datetime]
+    if (-not $d) { continue }
+
+    $k = $r.Zwierzę
+    $m = $d.ToString("yyyy-MM")
+
+    if (-not $zasMap.ContainsKey($k)) {
+        $zasMap[$k] = @()
     }
 
-    foreach ($m in $months) {
-
-        if ($m -lt $start) { continue }
-        if ($end -and $m -ge $end) { break }
-
-        $pivot[$k][$m] = "ZASUSZONA"
-    }
+    $zasMap[$k] += $m
 }
 
 #endregion
+
 
 #region ===========================================
 #region NAKŁADANIE WYCELEN (WSZYSTKICH)
