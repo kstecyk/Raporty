@@ -7,27 +7,14 @@ $csvPAG = Join-Path $PSScriptRoot "AnalizaPAG.csv"
 $csvZdarzenia = Join-Path $PSScriptRoot "Zdarzenia.csv"
 $csvLista = Join-Path $PSScriptRoot "ListaZwierzat.csv"
 
-function Log($msg) {
-    Write-Host "[$(Get-Date -Format 'HH:mm:ss')] $msg"
-}
-
-Log "Start skryptu"
-Log "Pliki wejsciowe:"
-Log "  ListaZwierzat : $csvLista"
-Log "  AnalizaPAG    : $csvPAG"
-Log "  Zdarzenia     : $csvZdarzenia"
-Log "  Raport HTML   : $outputHTML"
-
 #endregion
 
 #region ===========================================
 #region WCZYTANIE LISTY ZWIERZĄT
 # ===========================================
 
-Log "Wczytywanie listy zwierzat..."
 $lista = Import-Csv $csvLista -Delimiter ";" | Select-Object -SkipLast 2
 $listaKolczyki = $lista.Kolczyk
-Log "  Wczytano $($lista.Count) zwierzat"
 
 #endregion
 
@@ -35,10 +22,8 @@ Log "  Wczytano $($lista.Count) zwierzat"
 #region WCZYTANIE DANYCH PAG (TYLKO Z LISTY)
 # ===========================================
 
-Log "Wczytywanie danych PAG..."
 $data = Import-Csv $csvPAG -Delimiter ";" |
 Where-Object { $listaKolczyki -contains $_.Kolczyk }
-Log "  Wczytano $($data.Count) wynikow PAG (pasujacych do listy)"
 
 #endregion
 
@@ -71,7 +56,6 @@ foreach ($z in $lista) {
     $listaMap[$z.Kolczyk] = $z
 }
 
-Log "Budowanie tabeli pivot..."
 $pivot = @{}
 
 foreach ($k in $listaKolczyki) {
@@ -116,10 +100,8 @@ foreach ($k in $listaKolczyki) {
 #region WCZYTANIE ZDARZEŃ (TYLKO Z LISTY)
 # ===========================================
 
-Log "Wczytywanie zdarzen..."
 $zdarzenia = Import-Csv $csvZdarzenia -Delimiter ";" |
 Where-Object { $listaKolczyki -contains $_.Zwierzę }
-Log "  Wczytano $($zdarzenia.Count) zdarzen (pasujacych do listy)"
 
 #endregion
 
@@ -368,9 +350,7 @@ document.querySelectorAll('#raport th').forEach((th, idx) => {
 
 $html += "</body></html>"
 
-Log "Zapisywanie raportu HTML..."
 $html | Out-File $outputHTML -Encoding UTF8
-Log "  Zapisano: $outputHTML ($($pivot.Count) wierszy)"
 
 #endregion
 
@@ -380,7 +360,6 @@ Log "  Zapisano: $outputHTML ($($pivot.Count) wierszy)"
 # GIT PUSH (AUTO-DEPLOY)
 # =========================
 
-Log "Git: commit i push..."
 Push-Location $PSScriptRoot
 
 git add .
@@ -388,7 +367,6 @@ git commit -m "Auto update report $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 git push
 
 Pop-Location
-Log "Gotowe."
 
 
 
